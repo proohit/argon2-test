@@ -17,17 +17,25 @@ public class App {
      * [2] = parallelism
      */
     private static final int[][] parameterTable = {
+            // Minimum required by Argon2
             { 1024, 1, 1 },
             { 1024, 2, 1 },
             { 1024, 1, 2 },
+            // Recommended by Argon2 paper
             { 1024, 2, 2 },
             { 2048, 1, 1 },
             { 2048, 2, 1 },
             { 2048, 1, 2 },
             { 2048, 2, 2 },
-            // 500 MB 16 Iterations, 32 Threads
+            // Recommended OWASP Best Practices Password Storage
+            // https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#argon2id
+            { 1024 * 15, 2, 1 },
+            // Recommended OWASP Best Practices Password Storage
+            // https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#argon2id
+            { 1024 * 37, 1, 1 },
+            // 500 MB 8 Iterations, 16 Threads
             { 1024 * 500, 8, 16 },
-            // 2 GB 16 Iterations, 32 Threads
+            // 2 GB 8 Iterations, 16 Threads
             { 1024 * 1024 * 2, 8, 16 },
     };
 
